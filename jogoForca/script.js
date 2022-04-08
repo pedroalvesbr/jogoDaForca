@@ -71,9 +71,11 @@ function exibePalavraInterface(palavra){                //conexão js com html
 
 }
 
+
+
 function tentativa(letra){
     
-    if(palavraProposta.includes(letra)){
+    if(palavraProposta.includes(letra.toUpperCase())||palavraProposta.includes(letra.toLowerCase())){
         atualizaPalavraInterface(letra)
     }
     else if (letrasErradasArray.includes(letra)){
@@ -92,9 +94,10 @@ function tentativa(letra){
 function atualizaPalavraInterface(letra){
     let palavraAux = '';
     for (i=0; i<palavraProposta.length; i++){
-        if(palavraProposta[i] === letra){
+        if(palavraProposta[i] === letra.toUpperCase()||palavraProposta[i]===letra.toLowerCase()){
             palavraAux += letra
-        }else if(palavraInterface.innerHTML[i]){ //se a letra ja esta sendo exibida na interface
+        }
+        else if(palavraInterface.innerHTML[i]){ //se a letra ja esta sendo exibida na interface
             palavraAux += palavraInterface.innerHTML[i]
         }
         else{
